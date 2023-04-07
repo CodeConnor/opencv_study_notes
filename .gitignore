@@ -1,2 +1,5 @@
 # 忽略所有.idea文件夹
 **/.idea/
+
+# ignore whl files
+**/*.whl
