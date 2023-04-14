@@ -53,6 +53,31 @@ cv2.destroyAllWindows()
 # 创建好表示纯黑图像的三维数组后，复制出3个副本，3个副本分别修改最后一个索引代表的元素值。
 # 根据BGR的顺序，索引0表示蓝色分量，索引1表示绿色分量，索引2表示红色分量
 # 让3个副本分别显示纯蓝、纯绿和纯红
+h3 = 100
+w3 = 200
+img3 = np.zeros([h3, w3, 3], dtype=np.uint8)
+blue = img3.copy()  # 创建图像副本
+blue[:, :, 0] = 255  # 显示纯蓝
+green = img3.copy()
+green[:, :, 1] = 255
+red = img3.copy()
+red[:, :, 2] = 255
+# 显示所有图片
+cv2.imshow('blue', blue)
+cv2.imshow('green', green)
+cv2.imshow('red', red)
+cv2.waitKey()
+cv2.destroyAllWindows()
 
 # 使用NumPy提供的random.randint()方法就可以创建随机数组，
 # 将随机值的取值范围设定在0～256（即像素值范围），元素类型设定为无符号8位整数
+h4 = 100
+w4 = 200
+# 生成黑白随机图片
+img4 = np.random.randint(256, size=[h4, w4], dtype=np.uint8)
+# 随机彩色图像
+img5 = np.random.randint(256, size=[h4, w4, 3], dtype=np.uint8)
+cv2.imshow('img4', img4)
+cv2.imshow('img5', img5)
+cv2.waitKey()
+cv2.destroyAllWindows()
