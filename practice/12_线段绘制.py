@@ -35,3 +35,4 @@ canvas1 = cv2.rectangle(canvas1, (140, 140), (160, 160), (0, 255, 255), -1)  # -
 canvas1_RGB = cv2.cvtColor(canvas1, cv2.COLOR_BGR2RGB)
 plt.imshow(canvas1_RGB)
 plt.show()
+
