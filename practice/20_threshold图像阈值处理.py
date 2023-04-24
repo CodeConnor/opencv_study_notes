@@ -15,12 +15,21 @@
 # dst：经过阈值处理后的图像
 
 # --------------------------------------------------------eg.1
-# 进行二值化处理，取0~255的中间值127作为阈值，将255作为最大值
+# 进行阈值处理，取0~255的中间值127作为阈值，将255作为最大值
 import cv2
-img = cv2.imread('../imgs/black.png')
-# 二值化处理
-t1, dst1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
+
+img = cv2.imread('../imgs/black.png', 0)  # 将图像读取为灰度图，用彩色图直接二值化图片中间会出现蓝色或者红色线
+t1, dst1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)  # 二值化
+t2, dst2 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY_INV)  # 反二值化
+t3, dst3 = cv2.threshold(img, 127, 255, cv2.THRESH_TOZERO)  # 零阈值
+t4, dst4 = cv2.threshold(img, 127, 255, cv2.THRESH_TOZERO_INV)  # 反零阈值
+t5, dst5 = cv2.threshold(img, 127, 255, cv2.THRESH_TRUNC)  # 截断阈值
+# 显示图像
 cv2.imshow('img', img)
 cv2.imshow('dst1', dst1)
+cv2.imshow('dst2', dst2)
+cv2.imshow('dst3', dst3)
+cv2.imshow('dst4', dst4)
+cv2.imshow('dst5', dst5)
 cv2.waitKey()
 cv2.destroyAllWindows()
